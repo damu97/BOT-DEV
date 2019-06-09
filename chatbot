@@ -1,0 +1,84 @@
+package sampleThreads;
+
+/*class Mytask {
+void executeTask() {
+for(int doc=0;doc<=10;doc++) {
+System.out.println("## Printing Document #"+doc+"Printer 2 ");	
+}
+	
+}
+} */
+
+
+/*class Mytask extends Thread {
+ public void run() {
+for(int doc=0;doc<=10;doc++) {
+System.out.println("@@ Printing Document #"+doc+"Printer 2 ");	
+}
+	
+}
+
+
+}*/
+class function{
+	
+	
+	
+}
+
+
+
+
+class Mytask extends function implements Runnable {
+	 public synchronized  void run() {
+	for(int doc=0;doc<=10;doc++) {
+	System.out.println("@@ Printing Document #"+doc+"Printer 2 ");	
+	}
+		
+	}
+
+
+	}
+class yourTask extends function implements Runnable {
+	 public synchronized void run() {
+	for(int doc=0;doc<=10;doc++) {
+	System.out.println("%% Printing Document #"+doc+"Printer 3 ");	
+	}
+		
+	}
+
+
+	}
+
+
+
+
+public class App {
+public static void main(String[] args) {
+
+	
+	
+System.out.println("Applicatio Started****");
+//Mytask ref=new Mytask();// ChildThread/WorkerThread It performs  certain operation
+//not affecting the mainThread
+//ref.executeTask();
+//ref.start();
+Runnable ref=new Mytask();
+Thread T=new Thread(ref);
+T.start();
+
+
+Runnable ref2=new yourTask();
+Thread T1=new Thread(ref2);
+T1.start();
+
+for(int doc=0;doc<=10;doc++) {
+System.out.println("## Printing Document #"+doc+" Printer 1 ");		
+}
+
+System.out.println("Application ended****");
+
+
+
+}
+}
